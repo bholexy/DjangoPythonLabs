@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+
+
+<head>
+	
+<title>
+	
+</title>
+
+</head>
+
+
+<body>
+
+{{result}}
+	
+{{ lab_details }}
+
+<br><br><br>
+
+{% for eachtask in lab_tasks %}
+	<strong>{{ eachtask.task_number }}.) </strong>
+	{{ eachtask.comment }} <br><br>
+	<strong>Note: </strong> {{ eachtask.note }} <br><br>
+	<strong>Task: </strong> {{ eachtask.task }} <br><br>
+
+	<br><br><br>
+
+{% endfor %}
+
+{% block content %}
+
+	<form method="post" enctype="multipart/form-data">
+		
+		{% csrf_token %}
+
+		<label>Username: </label>
+		<input type="text" name="username">
+
+		{{ form.as_p }}
+
+		<button type="submit"> Upload </button>
+	</form>
+
+	<p><a href="{% url 'index' %}">Return to home</a></p>
+
+{% endblock %}
+
+</body>
+
+
+</html>
