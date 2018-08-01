@@ -42,19 +42,19 @@ class DetailLabView(generic.DetailView):
 
 	def post(self, request, *args, **kwargs):
 		form = DocumentUploadForm(request.POST, request.FILES)
-		if form.is_valid() and each_django_lab.id == 1:
+		if form.is_valid() and each_django_lab.lab_number == 1:
 			#<process form cleaned data>
 			output = handle_lab1_uploaded_file(request.FILES['document'], request.POST.get("username"))
 			return HttpResponse('Out of 100% Your Lab score is: ' + str(output))
-		elif form.is_valid() and each_django_lab.id == 2:
+		elif form.is_valid() and each_django_lab.lab_number == 2:
 			#<process form cleaned data>
 			output = handle_lab2_uploaded_file(request.FILES['document'], request.POST.get("username"))
 			return HttpResponse('Out of 100% Your Lab score is: ' + str(output))
-		elif form.is_valid() and each_django_lab.id == 3:
+		elif form.is_valid() and each_django_lab.lab_number == 3:
 			#<process form cleaned data>
 			output = handle_lab3_uploaded_file(request.FILES['document'], request.POST.get("username"))
 			return HttpResponse('Out of 100% Your Lab score is: ' + str(output))
-		elif form.is_valid() and each_django_lab.id == 4:
+		elif form.is_valid() and each_django_lab.lab_number == 4:
 			#<process form cleaned data>
 			output = handle_lab4_uploaded_file(request.FILES['document'], request.POST.get("username"))
 			return HttpResponse('Out of 100% Your Lab score is: ' + str(output))
@@ -75,7 +75,7 @@ class DetailLabView(generic.DetailView):
 		#Add document upload form to template
 		context['form'] = DocumentUploadForm()
 		#query labs
-		labs_list = list_labs_view_instance.get_queryset()
+		context['labs_pk'] = list_labs_view_instance.get_queryset()
 		#get total number of labs
 		context['number_of_all_labs'] = list_labs_view_instance.get_queryset().count()
 
@@ -85,6 +85,7 @@ class DetailLabView(generic.DetailView):
 		# context['page'] = page
 		# context['labs_list'] = Paginator(labs_list, 1)
 		# paginate page here
+		labs_list = list_labs_view_instance.get_queryset()
 		paginator = Paginator(labs_list, 1)
 		page = self.request.GET.get('page', 1)
 

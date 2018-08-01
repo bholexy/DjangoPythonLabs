@@ -65,10 +65,11 @@ class MainModel(models.Model):
 
 class LabTasks(models.Model):
 	lab_id = models.ForeignKey(Lab, on_delete = models.CASCADE)
-	task = models.TextField()
+	task_number = models.IntegerField(null = True)
 	comment = models.TextField()
-	note = models.TextField()
-	task_number = models.IntegerField(default = 12345)
+	note = models.TextField(null = True, blank = True)
+	task = models.TextField()
+	hint = models.TextField(null = True, blank = True)
 
 
 	def __str__(self):

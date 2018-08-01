@@ -25,7 +25,7 @@ SECRET_KEY = 'vq$+v$^(tw*x3t%^rif79v&*%papx&0x94e4+wjb=inu4jo5c_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['live.linuxjobber.com']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Labs',
+    'notes',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -77,10 +79,10 @@ WSGI_APPLICATION = 'DjangoLabs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DjangoLabs',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'djangolabs',
+        'USER': 'djangolabs',
+        'PASSWORD': 'L!nuxrebboj.2014',
+        'HOST': '127.0.0.1',
         'PORT': ''
 
     }
@@ -128,6 +130,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "/var/www/html/DjangoPythonLabs/static/"
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'asset'),
+    os.path.join(BASE_DIR, 'asset'), 
     )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

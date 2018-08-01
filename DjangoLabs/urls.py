@@ -18,11 +18,16 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include("Labs.urls", namespace = "labs")),
-    #url(r'^labs/', include("Labs.urls", namespace = "labs")),
+    #url(r'^notes/', include("notes.urls", namespace = "notes")),
+    url(r'^blog/', include("blog.urls")),
+    url('ckeditor/', include('ckeditor_uploader.urls')),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

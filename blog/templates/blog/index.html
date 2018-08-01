@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>notes</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'blog/bs/css/flatly.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+    
+<div class="notesbg">
+        <div class="noteshd" >
+        <h2>Notes</h2>
+        </div>    
+</div>
+
+<div class="container notes-marg">
+        {% for post in posts %}
+        <ul class="list-group">
+                <a href=" {% url 'notes' post.id %} "><li class="list-group-item">{{ post.title | safe }}</li></a>
+        {% endfor %}
+</div>
+    
+
+</body>
+</html>
+

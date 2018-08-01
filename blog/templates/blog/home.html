@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>notes</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'blog/bs/css/flatly.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+    
+
+    <div class="notesbg">
+        <div class="noteshd" >
+
+        {% if post.title %}
+        <h2>{{ post.title | safe }}</h2>
+       
+           </div>
+         </div>
+
+     <div class="container notes">
+         <div class="notes-marg"> 
+         <p class="notes-p">{{ post.body | safe }}</p>
+         
+     
+         </div>
+
+         </div>
+     </div>
+
+
+     <section>
+            <div class="frame">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <div class="wrap-box">
+                                <img src="{{ post.image_one.url }}" class="ide1">
+                                <div class="inner-box">
+                                    <a href=""><h3>{{ post.text_one }}</h3></a>
+                                  </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4 col-sm-12">
+                            <div class="wrap-box">
+                                <img src="{{ post.image_two.url }}" class="ide1">
+                                <div class="inner-box">
+                                    <a href=""><h3>{{ post.text_two }}</h3></a>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4 col-sm-12">
+                            <div class="wrap-box">
+                                <img src="{{ post.image_three.url }}" class="ide1">
+                                <div class="inner-box">
+                                    <a href=""><h3>{{ post.text_three }}</h3></a>
+                               </div>
+                            </div>
+                        </div>
+                        </div>
+                    {% endif %}
+
+                 
+                 <!-- <div class="row">
+                     <div class="col-md-2"></div>
+                     <div class="col-md-8">
+                     <form class="form-inline  form-details" role="form" action="" method="post">
+                     <div class="form-group">
+                         <br>
+                         <input class="form-control inputlg " type="text" name="comment" placeholder="Write a comment or response... "  id = "comment-exp"/>
+                         <input type="submit" name="submit" value="submit" class="btn btn-sm btn-primary">
+                     </div>
+                     </form> -->
+
+                                          
+                     <ul class="commentList list-unstyled text-center "  >
+                    
+                     <li>
+                         <div class="commenterImage">
+                            
+                         </div>
+                         <div class="commentText">
+                             <p class="" id = "rpd"></p>
+
+                         </div>
+                     </li>
+                     
+                         <li>
+                             <div class="commentText">
+                                 <!-- <p class="" id = "rpd">No Comment</p> -->
+                             </div>
+                         </li>
+                     
+                      </ul>
+                     </div>
+                     <div class="col-md-2"></div>
+                 </div>
+             </div>
+         </div>
+
+         </div>
+         </section>
+    
+
+        </body>
+        </html>
+ 
